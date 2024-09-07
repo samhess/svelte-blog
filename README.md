@@ -1,27 +1,28 @@
 # Deploy A Full Stack SvelteKit App
 
-Learn how to deploy a full stack SvelteKit app with [Supabase](https://supabase.com/) and [Vercel](https://vercel.com/) for free.
+Learn how to deploy a full stack SvelteKit app on [Vercel](https://vercel.com/) for free.
 
-## Post
-
-✍️ https://joyofcode.xyz/sveltekit-deployment
-
-## Get Started
-
-### 💾 Create a new GitHub project and use `degit` to copy this project and push it to your repository
+## Getting Started
 
 ```sh
-pnpx degit joysofcode/sveltekit-deploy
+# Create a new GitHub project and use `git clone` to copy this project.
+git clone https://github.com/samhess/svelte-blog.git
+# Create the database
+npx prisma db push
+# Install dependencies
+npm i
+# Run the development server
+npm run dev
 ```
 
-### 📦️ Install dependencies
+## Database
 
-```sh
-pnpm i
-```
+### Local Database
+Specify the **DATABASE_URL** in the *.env* file. Also adjust the database type (provider) in the 
+*schema.prisma* file.
 
-## 💿️ Run the development server
+### Cloud Database
+Specify the **DATABASE_URL** in the environment variables of your cloud database provider.
 
-```sh
-pnpm run dev
-```
+## Links
+* [Deploy A Full Stack SvelteKit App](https://joyofcode.xyz/sveltekit-deployment)
