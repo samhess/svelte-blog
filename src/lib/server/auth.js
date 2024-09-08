@@ -14,10 +14,11 @@ export const lucia = new Lucia(new PrismaAdapter(prisma.session, prisma.user), {
 			sameSite: 'lax'
 		}
 	},
-	getUserAttributes: ({email}) => {
+	getUserAttributes: ({id,name,username}) => {
 		return {
-			userId: email,
-			name: email
+			userId: id,
+			name: name,
+			username: username
 		}
 	}
 })

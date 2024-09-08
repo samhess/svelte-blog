@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import AuthForm from '$lib/components/forms/auth.svelte'
 
 	export let data

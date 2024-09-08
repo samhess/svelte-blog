@@ -7,12 +7,8 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"test": "playwright test",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"test:unit": "vitest",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "^2.10.2",
@@ -20,12 +16,7 @@
 		"@sveltejs/kit": "^2.5.26",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"@tailwindcss/forms": "^0.5.9",
-		"@types/marked": "^6.0.0",
-		"@types/rss": "^0.0.32",
-		"@typescript-eslint/eslint-plugin": "^8.4.0",
-		"@typescript-eslint/parser": "^8.4.0",
 		"autoprefixer": "^10.4.20",
-		"lucia": "^3.2.0",
 		"postcss": "^8.4.45",
 		"prisma": "^5.19.1",
 		"svelte": "^4.2.19",
@@ -41,8 +32,8 @@
 		"@lucia-auth/adapter-prisma": "^4.0.1",
 		"@prisma/client": "^5.19.1",
 		"@sveltejs/adapter-auto": "^3.2.4",
+		"lucia": "^3.2.0",
 		"marked": "^14.1.1",
-		"oslo": "^1.2.1",
 		"rss": "^1.2.2"
 	}
 }

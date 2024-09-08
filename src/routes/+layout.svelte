@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import Heading from './heading.svelte'
 	import Footer from './footer.svelte'
 	import '../app.css'

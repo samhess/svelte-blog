@@ -1,16 +1,6 @@
 import db from '$lib/server/database'
 import { error } from '@sveltejs/kit'
 
-// should use Prisma to get subset of types but I'm lazy
-type Post = {
-	html: string
-	title: string
-	slug: string
-	description: string
-	markdown: string
-	published: boolean
-}
-
 export async function getPosts() {
 	return await db.post.findMany({
 		select: {
@@ -37,7 +27,7 @@ export async function getPublishedPosts() {
 	})
 }
 
-export async function getPost(slug: string) {
+export async function getPost(slug='') {
 	const post = await db.post.findUnique({
 		where: { slug },
 		select: {
@@ -57,17 +47,23 @@ export async function getPost(slug: string) {
 	return post
 }
 
-export async function createPost(data: Post) {
+/**
+ * @param {*} data 
+ */
+export async function createPost(data) {
 	await db.post.create({ data })
 }
 
-export async function updatePost(slug: string, data: Post) {
+/**
+ * @param {*} data 
+ */
+export async function updatePost(slug='', data) {
 	return await db.post.update({
 		where: { slug },
 		data,
 	})
 }
 
-export async function deletePost(slug: string) {
+export async function deletePost(slug='') {
 	await db.post.delete({ where: { slug } })
 }

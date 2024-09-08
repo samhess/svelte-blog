@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { date } from '$lib/utils'
 
 	export let data

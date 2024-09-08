@@ -4,7 +4,9 @@ declare module "lucia" {
 	interface Register {
 		Lucia: typeof lucia
 		DatabaseUserAttributes: {
-			email: string
+			id: string
+			name: string
+			username: string
 		}
 	}
 }

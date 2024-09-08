@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 </script>
 
 <div class="container mt-32">

@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { superForm } from 'sveltekit-superforms/client'
 	import { SlideToggle } from '@skeletonlabs/skeleton'
 	//import Editor from '$lib/components/editor.svelte'
@@ -6,7 +6,7 @@
 	export let data
 
 	const { form, errors, constraints, enhance } = superForm(data)
-	let isDraft: boolean = $form.published
+	let isDraft = $form.published
 </script>
 
 <div class="card mt-8 p-8">

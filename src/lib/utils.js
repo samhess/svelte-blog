@@ -1,8 +1,12 @@
-export function truncate(text: string, limit = 40) {
+export function truncate(text='', limit = 40) {
 	return text.length > limit ? `${text.slice(0, limit)}...` : text
 }
 
-export function date(date: Date) {
+/**
+ * @param {*} date 
+ * @returns 
+ */
+export function date(date) {
 	return new Date(date).toLocaleDateString('en', {
 		dateStyle: 'medium',
 	})
