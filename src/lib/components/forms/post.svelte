@@ -64,8 +64,12 @@
 
 		<div class="space-y-2">
 			<p>Markdown</p>
-			<input type="textarea" name="markdown" value={$form.markdown}>
-<!-- 			<Editor markdown={$form.markdown} /> -->
+			<textarea 
+				class="input mt-2 rounded-none"
+				name="markdown"
+				bind:value={$form.markdown} 
+				placeholder="Enter markdown here"
+			/>
 		</div>
 
 		<div>

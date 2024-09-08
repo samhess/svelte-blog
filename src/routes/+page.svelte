@@ -2,13 +2,14 @@
 	import { date } from '$lib/utils'
 
 	export let data
+	const {posts} = data
 </script>
 
 <main class="container mt-32">
 	<h1 class="capitalize">Latest posts</h1>
 
 	<div class="mt-8 space-y-6">
-		{#each data.posts as post, i}
+		{#each posts as post, i}
 			<ol>
 				<li>
 					<h3>
@@ -26,7 +27,7 @@
 				</li>
 			</ol>
 
-			{#if data.posts.length > 1 && data.posts.length !== i + 1}
+			{#if posts.length > 1 && posts.length !== i + 1}
 				<hr />
 			{/if}
 		{/each}

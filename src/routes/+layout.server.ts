@@ -1,9 +1,6 @@
-//import { handleServerSession } from '@lucia-auth/sveltekit'
-
-//export const load = handleServerSession()
 
 /** @type {import('./$types').LayoutServerLoad} */
-export async function load(event) {
-  const session = event.locals.session
-  return {session}
+export async function load({locals, route}) {
+  const {session, user} = locals
+  return {session, user}
 }

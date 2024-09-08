@@ -10,7 +10,7 @@ export const load = async ({ params }) => {
 	const post = await posts.getPost(params.slug)
 
 	if (!post) {
-		error(400, 'Could not find post');
+		error(400, 'Could not find post')
 	}
 
 	const form = await superValidate(post, zod(postSchema))
@@ -28,13 +28,13 @@ export const actions = {
 		try {
 			const data = {
 				...form.data,
-				html: marked.parse(form.data.markdown),
+				html: await marked.parse(form.data.markdown),
 			}
 			await posts.updatePost(form.data.slug, data)
 		} catch (error) {
 			return fail(400, { form })
 		}
 
-		redirect(300, '/dashboard');
+		redirect(300, '/dashboard')
 	},
 }

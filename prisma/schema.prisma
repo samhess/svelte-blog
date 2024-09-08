@@ -11,38 +11,23 @@ datasource db {
 }
 
 model User {
-  id      String    @id @unique
-  session Session[]
-  Key     Key[]
-
-  // here you can add custom fields for your user
-  // e.g. name, email, username, roles, etc.
-  username String @unique
+  id       String    @id @unique
+  name     String?
+  password String
+  username String    @unique
+  sessions Session[]
 
   @@map("user")
 }
 
 model Session {
-  id             String @id @unique
-  user_id        String
-  active_expires BigInt
-  idle_expires   BigInt
-  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  id        String   @id @unique
+  expiresAt DateTime
+  userId    String
+  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
 
-  @@index([user_id])
+  @@index([userId])
   @@map("session")
-}
-
-model Key {
-  id              String  @id @unique
-  hashed_password String?
-  user_id         String
-  primary         Boolean
-  expires         BigInt?
-  user            User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
-
-  @@index([user_id])
-  @@map("key")
 }
 
 model Post {

@@ -3,7 +3,7 @@
 
 	export let data
 
-	const { form, errors, constraints, enhance } = superForm(data.form)
+	const { form, errors, constraints, enhance } = superForm(data)
 </script>
 
 <div class="card mt-8 p-8">

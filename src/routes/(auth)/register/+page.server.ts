@@ -1,21 +1,19 @@
 import { fail, redirect } from '@sveltejs/kit'
 import { superValidate } from 'sveltekit-superforms/server'
 import { zod } from 'sveltekit-superforms/adapters'
-import { PrismaClient } from "@prisma/client"
-const prisma = new PrismaClient()
-
-import { lucia } from '$lib/server/auth'
 import { authSchema } from '$lib/zod/schema'
+import db from '$lib/server/database'
 
 export const load = async ({ locals }) => {
-	if (locals.session) redirect(302, '/');
+	const {session} = locals
+	if (session) redirect(302, '/')
 
 	const form = await superValidate(null, zod(authSchema))
 	return { form }
 }
 
 export const actions = {
-	default: async ({ request, locals }) => {
+	default: async ({ request }) => {
 		const data = await request.formData()
 		const form = await superValidate(data, zod(authSchema))
 
@@ -24,13 +22,14 @@ export const actions = {
 		}
 
 		try {
-			const user = await prisma.user.create({
+			const user = await db.user.create({
 				data: {
-					id: '4',
-					username: form.data.username
+					id: form.data.username,
+					username: form.data.username,
+					password: form.data.password
 				}
 			})
-			locals.session = await lucia.createSession(user.id,{})
+			redirect(200, 'login')
 		} catch (error) {
 			return fail(400, { form })
 		}

@@ -1,6 +1,6 @@
 {
 	"type": "module",
-	"name": "sveltekit-deploy",
+	"name": "svelte-blog",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -41,7 +41,6 @@
 		"@lucia-auth/adapter-prisma": "^4.0.1",
 		"@prisma/client": "^5.19.1",
 		"@sveltejs/adapter-auto": "^3.2.4",
-		"@toast-ui/editor": "^3.2.2",
 		"marked": "^14.1.1",
 		"oslo": "^1.2.1",
 		"rss": "^1.2.2"

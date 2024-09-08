@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { enhance } from '$app/forms'
 	import { page } from '$app/stores'
-	//import { getUser } from '@lucia-auth/sveltekit/client'
+	import { enhance } from '$app/forms'
 	import { LightSwitch } from '@skeletonlabs/skeleton'
 
-	//const user = getUser()
 </script>
 
 <nav class="container mt-8 flex justify-between">
@@ -24,7 +22,7 @@
 				<a class="unstyled muted" href="/about">About</a>
 			</li>
 
-			{#if $page.data.session}
+			{#if $page.data.user}
 				<li>
 					<form method="POST" action="/logout" use:enhance>
 						<button class="muted" type="submit">Log out</button>
@@ -33,6 +31,6 @@
 			{/if}
 		</ol>
 
-	<LightSwitch /> 
+		<LightSwitch />
 	</div>
 </nav>

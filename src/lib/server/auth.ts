@@ -1,24 +1,23 @@
-import { Lucia } from 'lucia'
+import { Lucia, TimeSpan } from 'lucia'
 import { PrismaAdapter } from '@lucia-auth/adapter-prisma'
-import { PrismaClient } from "@prisma/client"
 import { dev } from '$app/environment'
-import { TimeSpan } from "oslo"
 
-const client = new PrismaClient()
-const adapter = new PrismaAdapter(client.session, client.user);
+import prisma from './database'
 
-export const lucia = new Lucia(adapter, {
-	sessionExpiresIn: new TimeSpan(1, "d"),
+export const lucia = new Lucia(new PrismaAdapter(prisma.session, prisma.user), {
+	sessionExpiresIn: new TimeSpan(1, 'd'),
 	sessionCookie: {
+		name: 'SvelteBlogSession',
 		attributes: {
-			// set to `true` when using HTTPS
-			secure: !dev
+			path: "/",
+			secure: !dev,
+			sameSite: 'lax'
 		}
 	},
-	getUserAttributes: (attributes) => {
+	getUserAttributes: ({email}) => {
 		return {
-			// we don't need to expose the hashed password!
-			email: attributes.email
+			userId: email,
+			name: email
 		}
 	}
 })

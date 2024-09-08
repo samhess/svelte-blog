@@ -1,11 +1,9 @@
- // @ts-nocheck 
- 
 import db from '$lib/server/database'
 import { error } from '@sveltejs/kit'
 
 // should use Prisma to get subset of types but I'm lazy
-type Post= {
-	html: string | Promise<string>
+type Post = {
+	html: string
 	title: string
 	slug: string
 	description: string
@@ -53,20 +51,17 @@ export async function getPost(slug: string) {
 	})
 
 	if (!post) {
-		error(400, `Could not find “${slug}”`);
+		error(400, `Could not find “${slug}”`)
 	}
 
 	return post
 }
 
 export async function createPost(data: Post) {
-	console.log(data)
 	await db.post.create({ data })
 }
 
-// @ts-ignore
 export async function updatePost(slug: string, data: Post) {
-
 	return await db.post.update({
 		where: { slug },
 		data,

@@ -1,6 +1,4 @@
 import { join } from 'path'
-//import type { Config } from 'tailwindcss';
-
 import { skeleton } from '@skeletonlabs/tw-plugin'
 
 /** @type {import('tailwindcss').Config} */
@@ -16,7 +14,7 @@ export default {
 	plugins: [
 		require('@tailwindcss/forms'),
 		skeleton({
-			themes: { preset: [ "crimson" ] }
+			themes: {preset:['crimson']}
 		})
 	],
 }
