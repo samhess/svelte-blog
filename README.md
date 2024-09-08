@@ -1,6 +1,4 @@
-# Deploy A Full Stack SvelteKit App
-
-Learn how to deploy a full stack SvelteKit app on [Vercel](https://vercel.com/) for free.
+# Simple Blog with SvelteKit
 
 ## Getting Started
 
@@ -23,6 +21,9 @@ Specify the **DATABASE_URL** in the *.env* file. Also adjust the database type (
 
 ### Cloud Database
 Specify the **DATABASE_URL** in the environment variables of your cloud database provider.
+
+## Deploy
+Learn how to deploy a full stack SvelteKit app on [Vercel](https://vercel.com/) for free.
 
 ## Links
 * [Deploy A Full Stack SvelteKit App](https://joyofcode.xyz/sveltekit-deployment)

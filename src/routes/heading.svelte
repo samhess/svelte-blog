@@ -2,12 +2,11 @@
 	import { page } from '$app/stores'
 	import { enhance } from '$app/forms'
 	import { LightSwitch } from '@skeletonlabs/skeleton'
-
 </script>
 
 <nav class="container mt-8 flex justify-between">
 	<a class="unstyled text-xl" href="/">
-		<b>🔥 Blog</b>
+		<b>Blog</b>
 	</a>
 
 	<div class="flex items-center gap-4">
@@ -21,7 +20,6 @@
 			<li>
 				<a class="unstyled muted" href="/about">About</a>
 			</li>
-
 			{#if $page.data.user}
 				<li>
 					<form method="POST" action="/logout" use:enhance>

@@ -3,11 +3,12 @@
 	import { date } from '$lib/utils'
 
 	export let data
+	const {posts} = data
 
 	let search = ''
 
-	$: filteredPosts = data.posts.filter((post) =>
-		post.title.toLowerCase().includes(search.trim())
+	$: filteredPosts = posts.filter(({title}) =>
+		title.toLowerCase().includes(search.trim())
 	)
 </script>
 

@@ -17,20 +17,20 @@ export const actions = {
 		const data = await request.formData()
 		const form = await superValidate(data, zod(authSchema))
 
-		if (!form.valid) {
-			return fail(400, { form })
-		}
-
-		try {
-			const user = await db.user.create({
-				data: {
-					id: form.data.username,
-					username: form.data.username,
-					password: form.data.password
-				}
-			})
-			redirect(200, 'login')
-		} catch (error) {
+		if (form.valid) {
+			try {
+				const user = await db.user.create({
+					data: {
+						id: form.data.username,
+						username: form.data.username,
+						password: form.data.password
+					}
+				})
+				redirect(200, 'login')
+			} catch (error) {
+				return fail(400, { form })
+			}
+		} else {
 			return fail(400, { form })
 		}
 	},

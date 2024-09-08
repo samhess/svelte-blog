@@ -1,8 +1,8 @@
 import RSS from 'rss'
-import * as posts from '$lib/services/posts'
+import {getPublishedPosts} from '$lib/services/posts'
 
 export const GET = async ({ url }) => {
-	const allPosts = await posts.getPublishedPosts()
+	const allPosts = await getPublishedPosts()
 	const siteUrl = url.origin
 
 	const feed = new RSS({

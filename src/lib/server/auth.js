@@ -1,7 +1,6 @@
 import { Lucia, TimeSpan } from 'lucia'
 import { PrismaAdapter } from '@lucia-auth/adapter-prisma'
 import { dev } from '$app/environment'
-
 import prisma from './database'
 
 export const lucia = new Lucia(new PrismaAdapter(prisma.session, prisma.user), {

@@ -9,7 +9,7 @@ export async function getPosts() {
 			title: true,
 			published: true,
 		},
-		orderBy: { createdAt: 'desc' },
+		orderBy: { createdAt: 'desc' }
 	})
 }
 

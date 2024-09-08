@@ -6,7 +6,7 @@
 
 <svelte:head>
 	<title>Blog</title>
-	<link rel="icon" href="https://fav.farm/🔥" />
+	<link rel="icon" href="https://fav.farm" />
 </svelte:head>
 
 <Heading />
