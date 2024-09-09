@@ -4,7 +4,7 @@
 	export let data
 </script>
 
-<div class="container mt-32">
+<article class="prose mt-32">
 	<h1 class="capitalize">Edit post</h1>
 	<Form data={data.form} />
-</div>
+</article>

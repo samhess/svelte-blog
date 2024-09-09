@@ -6,9 +6,14 @@
 
 <svelte:head>
 	<title>Blog</title>
-	<link rel="icon" href="https://fav.farm" />
+	<link rel="icon" href="https://fav.farm"/>
 </svelte:head>
 
-<Heading />
-<slot />
-<Footer />
+<div class="container">
+	<Heading/>
+	<main class="mt-32">
+		<slot/>
+	</main>
+	<Footer/>
+</div>
+

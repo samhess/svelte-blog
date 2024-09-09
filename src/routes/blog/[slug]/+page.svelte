@@ -1,10 +1,11 @@
 <script>
 	export let data
+	const {post} = data
 </script>
 
-<div class="container mt-32">
-	<h1>{data.post.title}</h1>
+<article class="prose mt-32">
+	<h1>{post.title}</h1>
 	<div class="mt-8 max-w-[80ch] space-y-8">
-		{@html data.post.html}
+		{@html post.html}
 	</div>
-</div>
+</article>

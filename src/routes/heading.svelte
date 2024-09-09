@@ -4,10 +4,8 @@
 	import { LightSwitch } from '@skeletonlabs/skeleton'
 </script>
 
-<nav class="container mt-8 flex justify-between">
-	<a class="unstyled text-xl" href="/">
-		<b>Blog</b>
-	</a>
+<nav class="mt-8 flex justify-between">
+	<a class="unstyled text-xl" href="/">Blog</a>
 
 	<div class="flex items-center gap-4">
 		<ol class="flex space-x-4">

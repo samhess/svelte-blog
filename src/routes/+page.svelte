@@ -5,12 +5,12 @@
 	const {posts} = data
 </script>
 
-<main class="container mt-32">
+<article class="prose mt-32">
 	<h1 class="capitalize">Latest posts</h1>
 
 	<div class="mt-8 space-y-6">
 		{#each posts as post, i}
-			<ol>
+			<ol class="list-none">
 				<li>
 					<h3>
 						<a
@@ -21,7 +21,7 @@
 						</a>
 					</h3>
 					<p>{post.description}</p>
-					<p class="mt-4 text-gray-600 dark:text-gray-400">
+					<p class="text-gray-600 dark:text-gray-400">
 						{date(post.createdAt)}
 					</p>
 				</li>
@@ -32,4 +32,4 @@
 			{/if}
 		{/each}
 	</div>
-</main>
+</article>

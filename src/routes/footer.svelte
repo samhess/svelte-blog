@@ -1,4 +1,4 @@
-<div class="container mt-32">
+<div class="mt-32">
 	<hr />
 	<footer class="py-2">
 		<nav class="flex justify-between">

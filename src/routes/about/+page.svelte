@@ -1,8 +1,8 @@
-<div class="container mt-32">
+<article class="prose mt-32">
 	<h1>About</h1>
 
 	<div class="mt-8 max-w-[80ch] space-y-8">
-		<p>
+		<p class="lead">
 			We spend so much of our life looking - but never seeing. Talk to trees,
 			look at the birds. Whatever it takes. It's beautiful - and we haven't even
 			done anything to it yet. Remember how free clouds are. They just lay
@@ -23,4 +23,4 @@
 			use the old one inch brush.
 		</p>
 	</div>
-</div>
+</article>

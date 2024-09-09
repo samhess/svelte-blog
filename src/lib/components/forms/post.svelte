@@ -5,9 +5,11 @@
 
 	export let data
 
-	const { form, errors, constraints, enhance } = superForm(data)
+	const { form, enhance, message, constraints, errors } = superForm(data)
 	let isDraft = $form.published
 </script>
+
+{#if $message}<h3>{$message}</h3>{/if}
 
 <div class="card mt-8 p-8">
 	<form method="POST" class="space-y-6" use:enhance>
@@ -19,13 +21,13 @@
 				name="title"
 				id="title"
 				class:input-error={$errors.title}
-				data-invalid={$errors.title}
+				aria-invalid={$errors.title ? 'true' : undefined}
 				bind:value={$form.title}
-				{...$constraints.slug}
+				{...$constraints.title}
 			/>
 		</label>
 		{#if $errors.title}
-			<span class="text-red-400">{$errors.title}</span>
+			<span class="invalid">{$errors.title}</span>
 		{/if}
 
 		<label class="label" for="slug">
@@ -36,13 +38,13 @@
 				name="slug"
 				id="slug"
 				class:input-error={$errors.slug}
-				data-invalid={$errors.slug}
+				aria-invalid={$errors.slug ? 'true' : undefined}
 				bind:value={$form.slug}
 				{...$constraints.slug}
 			/>
 		</label>
 		{#if $errors.slug}
-			<span class="text-red-400">{$errors.slug}</span>
+			<span class="invalid">{$errors.slug}</span>
 		{/if}
 
 		<label class="label" for="description">
@@ -53,24 +55,28 @@
 				name="description"
 				id="description"
 				class:input-error={$errors.description}
-				data-invalid={$errors.description}
+				aria-invalid={$errors.description ? 'true' : undefined}
 				bind:value={$form.description}
 				{...$constraints.description}
 			/>
 		</label>
 		{#if $errors.description}
-			<span class="text-red-400">{$errors.description}</span>
+			<span class="invalid">{$errors.description}</span>
 		{/if}
 
-		<div class="space-y-2">
-			<p>Markdown</p>
+		<label class="label" for="description">
+			<span>Markdown</span>
 			<textarea 
 				class="input mt-2 rounded-none"
 				name="markdown"
 				bind:value={$form.markdown} 
 				placeholder="Enter markdown here"
+				{...$constraints.markdown}
 			/>
-		</div>
+		</label>
+		{#if $errors.markdown}
+			<span class="invalid">{$errors.markdown}</span>
+		{/if}
 
 		<div>
 			<SlideToggle name="published" bind:checked={isDraft}>
@@ -81,3 +87,9 @@
 		<button class="btn variant-filled" type="submit">Submit</button>
 	</form>
 </div>
+
+<style>
+  .invalid {
+    color: red;
+  }
+</style>

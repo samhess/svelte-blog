@@ -5,7 +5,7 @@
 	const {form} = data
 </script>
 
-<div class="mx-auto mt-32 max-w-sm">
+<article class="prose mx-auto mt-32 max-w-sm">
 	<h1>Register</h1>
 	<AuthForm data={form} />
-</div>
+</article>

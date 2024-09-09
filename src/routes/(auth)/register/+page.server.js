@@ -1,21 +1,20 @@
 import { fail, redirect } from '@sveltejs/kit'
 import { superValidate } from 'sveltekit-superforms/server'
-import { zod } from 'sveltekit-superforms/adapters'
-import { authSchema } from '$lib/zod/schema'
+import { authAdapter } from '$lib/zod/schema'
 import db from '$lib/server/database'
 
 export const load = async ({ locals }) => {
 	const {session} = locals
 	if (session) redirect(302, '/')
 
-	const form = await superValidate(null, zod(authSchema))
+	const form = await superValidate(null, authAdapter)
 	return { form }
 }
 
 export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData()
-		const form = await superValidate(data, zod(authSchema))
+		const form = await superValidate(data, authAdapter)
 
 		if (form.valid) {
 			try {
