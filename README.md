@@ -2,9 +2,9 @@
 
 This is a simple blog system implemented with SvelteKit. It uses 
 [Prisma ORM](https://www.prisma.io) for database access.
-For layout and design [Tailwind CSS](https://tailwindcss.com){:target="_blank"} 
-is used along with [Skeleton UI toolkit](https://www.skeleton.dev){:target="_blank"}. 
-Authentication is implemented using [Lucia Auth](https://lucia-auth.com){:target="_blank"}.
+For layout and design [Tailwind CSS](https://tailwindcss.com)
+is used along with [Skeleton UI toolkit](https://www.skeleton.dev). 
+Authentication is implemented using [Lucia Auth](https://lucia-auth.com).
 
 ## Getting Started
 
@@ -26,14 +26,14 @@ npm run dev
 ## Database
 
 ### Local Database
-Specify the **DATABASE_URL** in the *.env* file. Also adjust the database type (provider) in the 
-*schema.prisma* file.
+Specify the **DATABASE_URL** in [.env*](.env). Also adjust the database type (provider) in 
+[schema.prisma](prisma/schema.prisma).
 
 ### Cloud Database
 Specify the **DATABASE_URL** in the environment variables of your cloud database provider.
 
 ## Deploy
-Learn how to deploy a full stack SvelteKit app on [Vercel](https://vercel.com/) for free.
+Learn how to deploy a full stack SvelteKit app on [Vercel](https://vercel.com) for free.
 
 ## Links
 * [Deploy A Full Stack SvelteKit App](https://joyofcode.xyz/sveltekit-deployment)
