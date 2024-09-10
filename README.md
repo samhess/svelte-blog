@@ -1,7 +1,10 @@
 # Simple Blog with SvelteKit
 
-This is a simple blog system implemented with SvelteKit. It uses *Prisma ORM* for database access.
-For layout and design [Tailwind CSS](https://tailwindcss.com) is used along with [Skeleton UI toolkit](https://www.skeleton.dev). Authentication is implemented using [Lucia Auth](https://lucia-auth.com).
+This is a simple blog system implemented with SvelteKit. It uses 
+[Prisma ORM](https://www.prisma.io) for database access.
+For layout and design [Tailwind CSS](https://tailwindcss.com){:target="_blank"} 
+is used along with [Skeleton UI toolkit](https://www.skeleton.dev){:target="_blank"}. 
+Authentication is implemented using [Lucia Auth](https://lucia-auth.com){:target="_blank"}.
 
 ## Getting Started
 
