@@ -25,7 +25,7 @@ export const actions = {
 						password: form.data.password
 					}
 				})
-				redirect(200, 'login')
+				redirect(303, 'login')
 			} catch (error) {
 				return fail(400, { form })
 			}

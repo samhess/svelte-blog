@@ -69,6 +69,7 @@
 			<textarea 
 				class="input mt-2 rounded-none"
 				name="markdown"
+				aria-invalid={$errors.markdown ? 'true' : undefined}
 				bind:value={$form.markdown} 
 				placeholder="Enter markdown here"
 				{...$constraints.markdown}
@@ -87,9 +88,3 @@
 		<button class="btn variant-filled" type="submit">Submit</button>
 	</form>
 </div>
-
-<style>
-  .invalid {
-    color: red;
-  }
-</style>

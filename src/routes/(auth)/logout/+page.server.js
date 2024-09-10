@@ -11,6 +11,6 @@ export const actions = {
 		} else {
 			return fail(401)
 		}
-		redirect(200, '/')
+		redirect(303, '/')
 	}
 }

@@ -1,14 +1,21 @@
 # Simple Blog with SvelteKit
 
+This is a simple blog system implemented with SvelteKit. It uses *Prisma ORM* for database access.
+For layout and design [Tailwind CSS](https://tailwindcss.com) is used along with [Skeleton UI toolkit](https://www.skeleton.dev). Authentication is implemented using [Lucia Auth](https://lucia-auth.com).
+
 ## Getting Started
 
 ```sh
 # Create a new GitHub project and use `git clone` to copy this project.
 git clone https://github.com/samhess/svelte-blog.git
-# Create the database
-npx prisma db push
+
 # Install dependencies
-npm i
+npm install
+
+# Specify DATABASE_URL as environment variable
+# Create the database model
+npx prisma db push
+
 # Run the development server
 npm run dev
 ```
