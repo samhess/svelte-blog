@@ -73,6 +73,7 @@
 				bind:value={$form.markdown} 
 				placeholder="Enter markdown here"
 				{...$constraints.markdown}
+				rows="10"
 			/>
 		</label>
 		{#if $errors.markdown}

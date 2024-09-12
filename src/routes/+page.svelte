@@ -10,7 +10,7 @@
 
 	<div class="mt-8 space-y-6">
 		{#each posts as post, i}
-			<ol class="list-none">
+			<ol class="list-none pl-0">
 				<li>
 					<h3>
 						<a

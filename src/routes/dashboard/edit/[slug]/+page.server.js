@@ -6,9 +6,8 @@ import { postAdapter } from '$lib/zod/schema'
 
 export const load = async ({ params }) => {
 	const post = await getPost(params.slug)
-	console.log(post)
 	if (post) {
-		const form = await superValidate(postAdapter)
+		const form = await superValidate(post, postAdapter)
 		return { form }
 	} else {
 		error(400, 'Could not find post')
@@ -18,7 +17,6 @@ export const load = async ({ params }) => {
 export const actions = {
 	default: async (event) => {
 		const form = await superValidate(event, postAdapter)
-		console.log(form);
 		
 		if (form.valid) {
 				const data = {

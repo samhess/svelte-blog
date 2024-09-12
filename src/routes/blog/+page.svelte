@@ -29,7 +29,7 @@
 	</form>
 
 	<div class="mt-8">
-		<ol class="list-none space-y-6">
+		<ol class="list-none pl-0 space-y-6">
 			{#each filteredPosts as post, i}
 				<li transition:slide|local>
 					<h3>

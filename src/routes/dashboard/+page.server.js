@@ -1,16 +1,16 @@
-import { fail } from '@sveltejs/kit'
-import * as posts from '$lib/services/posts'
+import {fail} from '@sveltejs/kit'
+import {getPosts, deletePost} from '$lib/services/posts'
 
 export const load = async () => {
-	return { posts: await posts.getPosts() }
+	const posts = await getPosts()
+	return { posts }
 }
 
 export const actions = {
 	delete: async ({ url }) => {
 		const slug = String(url.searchParams.get('slug'))
-
 		try {
-			await posts.deletePost(slug)
+			await deletePost(slug)
 		} catch (error) {
 			return fail(400)
 		}

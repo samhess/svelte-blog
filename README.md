@@ -26,7 +26,7 @@ npm run dev
 ## Database
 
 ### Local Database
-Specify the **DATABASE_URL** in [.env*](.env). Also adjust the database type (provider) in 
+Specify the **DATABASE_URL** in [.env](.env). Also adjust the database type (provider) in 
 [schema.prisma](prisma/schema.prisma).
 
 ### Cloud Database
