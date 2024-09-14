@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,26 +5,6 @@ generator client {
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
-}
-
-model User {
-  id       String    @id @unique
-  name     String?
-  password String
-  username String    @unique
-  sessions Session[]
-
-  @@map("user")
-}
-
-model Session {
-  id        String   @id @unique
-  expiresAt DateTime
-  userId    String
-  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
-
-  @@index([userId])
-  @@map("session")
 }
 
 model Post {
@@ -39,6 +16,18 @@ model Post {
   markdown    String
   html        String
   published   Boolean  @default(false)
+}
 
-  @@map("post")
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  userId    String
+  user      User     @relation(fields: [userId], references: [username], onDelete: Cascade)
+}
+
+model User {
+  username String    @id
+  name     String?
+  password String?
+  Session  Session[]
 }

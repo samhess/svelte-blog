@@ -51,7 +51,7 @@ export async function GET({cookies,params,url}) {
 			if (email) {
 				const user = await db.user.findUnique({where:{username:email}})
 				if (!user) {
-					await db.user.create({data:{id:email,username:email,password:''}})
+					await db.user.create({data:{username:email}})
 					console.info(`Added local user ${email}. Please complete details`)	
 				}
 				console.info(`OAuth login via ${provider} with ${email}`)	
