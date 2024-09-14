@@ -32,6 +32,7 @@
 		"@lucia-auth/adapter-prisma": "^4.0.1",
 		"@prisma/client": "^5.19.1",
 		"@sveltejs/adapter-auto": "^3.2.4",
+		"arctic": "^1.9.2",
 		"lucia": "^3.2.0",
 		"marked": "^14.1.1",
 		"rss": "^1.2.2"

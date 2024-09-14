@@ -22,7 +22,7 @@ export const handle = async ({event, resolve}) => {
 		event.locals.user = null
 		const path = event.url.pathname
 		if (path.startsWith('/api')) {
-			if (path.startsWith('/api/auth') || path.startsWith('/api/quote') || path.startsWith('/api/lookup')) {
+			if (path.startsWith('/api/oauth')) {
 				return resolve(event)
 			} else {
 				return error(401)
