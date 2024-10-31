@@ -10,11 +10,10 @@ import { dev } from '$app/environment'
  */
 async function createAuthorizationURL(providerKey, state, codeVerifier) {
 	const provider = providers[providerKey]
-	const {arctic, scopes, userCodeVerifier} = provider
-	if (userCodeVerifier) {
-		return await arctic.createAuthorizationURL(state, codeVerifier, {scopes})
+	if (provider.useCodeVerifier) {
+		return await provider.arctic.createAuthorizationURL(state, codeVerifier, provider.scopes)
 	} else {
-		return await arctic.createAuthorizationURL(state, {scopes})
+		return await provider.arctic.createAuthorizationURL(state, provider.scopes)
 	}
 } 
 

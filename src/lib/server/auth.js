@@ -33,15 +33,13 @@ const redirectBase = 'http://localhost:5173/api/oauth'
 export const providers = {
 	github: {
 		name: 'GitHub',
-		arctic: new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, {
-			redirectURI:`${redirectBase}/github/callback`
-		}),
+		arctic: new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, `${redirectBase}/github/callback`),
 		api: {
 			email: 'https://api.github.com/user/emails',
 			user: 'https://api.github.com/user'
 		},
 		scopes: ['user:email'],
-		userCodeVerifier: false
+		useCodeVerifier: false
 	},
 	google: {
 		name: 'Google',
@@ -51,6 +49,6 @@ export const providers = {
 			email: 'https://www.googleapis.com/oauth2/v3/userinfo'
 		},
 		scopes: ['email','profile'],
-		userCodeVerifier: true
+		useCodeVerifier: true
 	}
 }

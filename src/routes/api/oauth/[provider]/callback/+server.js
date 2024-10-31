@@ -3,17 +3,18 @@ import { lucia, providers } from '$lib/server/auth.js'
 import db from '$lib/server/database.js'
 
 /**
- * @param {string} provider 
+ * @param {string} providerKey 
  * @param {string|null|undefined} code 
  * @param {string|null|undefined} codeVerifier 
  */
-async function getAccessToken(provider='github', code, codeVerifier) {
-	if (['google'].includes(provider) && code && codeVerifier) {
-		const {accessToken} = await providers[provider].arctic.validateAuthorizationCode(code, codeVerifier)
-		return accessToken
+async function getAccessToken(providerKey='github', code, codeVerifier) {
+	const provider = providers[providerKey]
+	if (provider.useCodeVerifier) {
+		const tokens = await provider.arctic.validateAuthorizationCode(code, codeVerifier)
+		return tokens.accessToken()
 	} else if (code) {
-		const {accessToken} = await providers[provider].arctic.validateAuthorizationCode(code)
-		return accessToken
+		const tokens = await provider.arctic.validateAuthorizationCode(code)
+		return tokens.accessToken()
 	}
 }
 
