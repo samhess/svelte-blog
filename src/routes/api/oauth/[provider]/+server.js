@@ -1,6 +1,6 @@
 import { generateState, generateCodeVerifier} from 'arctic'
 import { redirect } from '@sveltejs/kit'
-import { providers } from '$lib/server/auth.js'
+import { providers } from '$lib/server/arctic.js'
 import { dev } from '$app/environment'
 
 /**

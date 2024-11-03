@@ -1,5 +1,6 @@
 import { redirect, error } from '@sveltejs/kit'
-import { lucia, providers } from '$lib/server/auth.js'
+import { providers } from '$lib/server/arctic.js'
+import { generateSessionToken, createSession } from '$lib/server/session.js'
 import db from '$lib/server/database.js'
 
 /**
@@ -55,10 +56,10 @@ export async function GET({cookies,params,url}) {
 					await db.user.create({data:{username:email}})
 					console.info(`Added local user ${email}. Please complete details`)	
 				}
-				console.info(`OAuth login via ${provider} with ${email}`)	
-				const session = await lucia.createSession(email, {})
-				const {name, value, ...attributes} = lucia.createSessionCookie(session.id)
-				cookies.set(name, value, {...attributes,path:'/'})
+				console.info(`OAuth login via ${provider} with ${email}`)
+				const token = generateSessionToken()
+				const session = await createSession(token, email)
+				cookies.set('svelteBlog', token, {httpOnly:true, sameSite:'lax', expires:session.expiresAt, path:'/'})
 				redirect(302, '/')
 			} else {
 				error(400, 'could not get email of OAuth user')

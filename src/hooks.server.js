@@ -1,20 +1,18 @@
-import { lucia } from '$lib/server/auth'
+import { validateSessionToken } from '$lib/server/session'
 import { error } from '@sveltejs/kit'
 
 export const handle = async ({event, resolve}) => {
 	console.log(`${event.request.method} ${event.url.pathname}`)
 
-	const sessionId = event.cookies.get(lucia.sessionCookieName)
-	if (sessionId) {
-		const {session, user} = await lucia.validateSession(sessionId)
+	const token = event.cookies.get('svelteBlog')
+	if (token) {
+		const {session, user} = await validateSessionToken(token)
 		event.locals.session = session
 		event.locals.user = user
-		if (!session) {
-			const {name, value, ...attributes} = lucia.createBlankSessionCookie()
-			event.cookies.set(name, value, {path: "/", ...attributes})
-		} else if (session.fresh) {
-			const {name, value, ...attributes} = lucia.createSessionCookie(session.id)
-			event.cookies.set(name, value, {path: "/", ...attributes})
+		if (session) {
+			event.cookies.set('svelteBlog', token, {httpOnly:true, sameSite:'lax', expires:session.expiresAt, path:'/'})
+		} else {
+			event.cookies.set('svelteBlog', '', {httpOnly:true, sameSite:'lax', maxAge:0, path:'/'})
 		}
 		return resolve(event)
 	} else {

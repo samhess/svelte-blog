@@ -1,7 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit'
 import { superValidate } from 'sveltekit-superforms/server'
-import { lucia } from '$lib/server/auth'
 import { authAdapter } from '$lib/zod/schema'
+import { generateSessionToken, createSession } from '$lib/server/session.js'
 import db from '$lib/server/database'
 
 export const load = async ({ locals }) => {
@@ -24,9 +24,9 @@ export const actions = {
 			const {data} = form
 			const user = await db.user.findUnique({where:{username:data.username}})
 			if (user) {
-				const session = await lucia.createSession(user.id, {})
-				const {name, value, ...attributes} = lucia.createSessionCookie(session.id)
-				cookies.set(name, value, {path: "/", ...attributes})
+				const token = generateSessionToken()
+				const session = await createSession(token, user.username)
+				cookies.set('svelteBlog', token, {httpOnly:true, sameSite:'lax', expires:session.expiresAt, path:'/'})
 			} else {
 				return fail(400, {message:'email and password do not match'})
 			}
