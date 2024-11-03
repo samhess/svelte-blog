@@ -1,5 +1,5 @@
 import { redirect, error } from '@sveltejs/kit'
-import { providers } from '$lib/server/arctic.js'
+import { oauth } from '$lib/server/arctic.js'
 import { generateSessionToken, createSession } from '$lib/server/session.js'
 import db from '$lib/server/database.js'
 
@@ -9,7 +9,7 @@ import db from '$lib/server/database.js'
  * @param {string|null|undefined} codeVerifier 
  */
 async function getAccessToken(providerKey='github', code, codeVerifier) {
-	const provider = providers[providerKey]
+	const provider = oauth[providerKey]
 	if (provider.useCodeVerifier) {
 		const tokens = await provider.arctic.validateAuthorizationCode(code, codeVerifier)
 		return tokens.accessToken()
@@ -20,7 +20,7 @@ async function getAccessToken(providerKey='github', code, codeVerifier) {
 }
 
 async function getEmail(provider='github', accessToken='') {
-	const response = await fetch(providers[provider].api.email, {headers:{Authorization: `Bearer ${accessToken}`}})
+	const response = await fetch(oauth[provider].api.email, {headers:{Authorization: `Bearer ${accessToken}`}})
 	if (response.ok) {
 		if (provider==='github') {
 			/** @type {Object<string,any>[]} */
@@ -65,7 +65,7 @@ export async function GET({cookies,params,url}) {
 				error(400, 'could not get email of OAuth user')
 			}
 		} else {
-			error(400, `could not get access token for user/email api ${providers[provider].api.email}`)
+			error(400, `could not get access token for user/email api ${oauth[provider].api.email}`)
 		}
 	} else {
 		error(400, 'invalid request')

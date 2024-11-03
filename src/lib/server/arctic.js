@@ -8,11 +8,9 @@ import {
 
 const redirectURL = 'http://localhost:5173/api/oauth'
 
-
 /** @type {Object<string,any>} */
-export const providers = {
+export const oauth = {
 	github: {
-		name: 'GitHub',
 		arctic: new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, `${redirectURL}/github/callback`),
 		api: {
 			email: 'https://api.github.com/user/emails',
@@ -22,7 +20,6 @@ export const providers = {
 		useCodeVerifier: false
 	},
 	google: {
-		name: 'Google',
 		arctic: new Google(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, `${redirectURL}/google/callback`),
 		api: {
 			user: 'https://www.googleapis.com/oauth2/v3/userinfo',

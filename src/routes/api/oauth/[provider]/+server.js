@@ -1,6 +1,6 @@
 import { generateState, generateCodeVerifier} from 'arctic'
 import { redirect } from '@sveltejs/kit'
-import { providers } from '$lib/server/arctic.js'
+import { oauth } from '$lib/server/arctic.js'
 import { dev } from '$app/environment'
 
 /**
@@ -9,7 +9,7 @@ import { dev } from '$app/environment'
  * @param {string} codeVerifier 
  */
 async function createAuthorizationURL(providerKey, state, codeVerifier) {
-	const provider = providers[providerKey]
+	const provider = oauth[providerKey]
 	if (provider.useCodeVerifier) {
 		return await provider.arctic.createAuthorizationURL(state, codeVerifier, provider.scopes)
 	} else {
