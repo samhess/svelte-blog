@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms'
 	import { date, truncate } from '$lib/utils'
 
-	export let data
+	let {data} = $props()
 </script>
 
 <article class="prose mt-32">

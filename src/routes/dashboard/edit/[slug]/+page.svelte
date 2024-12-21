@@ -1,7 +1,7 @@
 <script>
 	import Form from '$lib/components/forms/post.svelte'
 
-	export let data
+	let {data} = $props()
 </script>
 
 <article class="prose mt-32">

@@ -1,6 +1,6 @@
 <script>
-	export let data
-	const {post} = data
+	let {data} = $props()
+	let {post} = $derived(data) 
 </script>
 
 <article class="prose mt-32">

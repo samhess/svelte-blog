@@ -1,21 +1,24 @@
 <script>
+	import { createBubbler, preventDefault } from 'svelte/legacy';
+
+	const bubble = createBubbler();
 	import { slide } from 'svelte/transition'
 	import { date } from '$lib/utils'
 
-	export let data
-	const {posts} = data
+	let {data} = $props()
+	let {posts} = $derived(data)
 
-	let search = ''
+	let search = $state('')
 
-	$: filteredPosts = posts.filter(({title}) =>
+	let filteredPosts = $derived(posts.filter(({title}) =>
 		title.toLowerCase().includes(search.trim())
-	)
+	))
 </script>
 
 <article class="prose mt-32">
 	<h1 class="capitalize">Search posts</h1>
 
-	<form on:input|preventDefault class="mt-8">
+	<form oninput={preventDefault(bubble('input'))} class="mt-8">
 		<label for="search">
 			<input
 				type="search"

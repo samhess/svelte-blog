@@ -11,28 +11,28 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@skeletonlabs/skeleton": "^2.10.3",
+		"@skeletonlabs/skeleton": "^2.10.4",
 		"@skeletonlabs/tw-plugin": "^0.4.0",
-		"@sveltejs/kit": "^2.11.1",
-		"@sveltejs/vite-plugin-svelte": "^5.0.2",
+		"@sveltejs/kit": "^2.13.0",
+		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.4.49",
-		"prisma": "^6.0.1",
-		"svelte": "^5.12.0",
+		"prisma": "^6.1.0",
+		"svelte": "^5.15.0",
 		"svelte-check": "^4.1.1",
-		"sveltekit-superforms": "^2.21.1",
-		"tailwindcss": "^3.4.16",
+		"sveltekit-superforms": "^2.22.1",
+		"tailwindcss": "^3.4.17",
 		"typescript": "^5.7.2",
-		"vite": "^6.0.3",
+		"vite": "^6.0.5",
 		"zod": "^3.24.1"
 	},
 	"dependencies": {
-		"@prisma/client": "^6.0.1",
+		"@prisma/client": "^6.1.0",
 		"@sveltejs/adapter-auto": "^3.3.1",
-		"arctic": "^2.3.1",
-		"marked": "^15.0.3",
+		"arctic": "^2.3.3",
+		"marked": "^15.0.4",
 		"rss": "^1.2.2"
 	}
 }

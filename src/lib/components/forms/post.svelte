@@ -2,11 +2,18 @@
 	import { superForm } from 'sveltekit-superforms/client'
 	import { SlideToggle } from '@skeletonlabs/skeleton'
 	//import Editor from '$lib/components/editor.svelte'
+	
 
-	export let data
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} data - page data
+	 */
+
+	/** @type {Props} */
+	let {data} = $props()
 
 	const { form, enhance, message, constraints, errors } = superForm(data)
-	let isDraft = $form.published
+	let isDraft = $state($form.published)
 </script>
 
 {#if $message}<h3>{$message}</h3>{/if}
@@ -74,7 +81,7 @@
 				placeholder="Enter markdown here"
 				{...$constraints.markdown}
 				rows="10"
-			/>
+			></textarea>
 		</label>
 		{#if $errors.markdown}
 			<span class="invalid">{$errors.markdown}</span>

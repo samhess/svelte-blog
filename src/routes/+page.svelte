@@ -1,8 +1,8 @@
 <script>
 	import { date } from '$lib/utils'
 
-	export let data
-	const {posts} = data
+	let {data} = $props()
+	let {posts} = $derived(data)
 </script>
 
 <article class="prose mt-32">
