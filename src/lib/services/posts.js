@@ -31,6 +31,7 @@ export async function getPost(slug='') {
 	const post = await db.post.findUnique({
 		where: { slug },
 		select: {
+			id: true,
 			title: true,
 			slug: true,
 			description: true,
@@ -57,9 +58,9 @@ export async function createPost(data) {
 /**
  * @param {*} data 
  */
-export async function updatePost(slug='', data) {
+export async function updatePost(id=1, data) {
 	return await db.post.update({
-		where: { slug },
+		where: { id },
 		data,
 	})
 }

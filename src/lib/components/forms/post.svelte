@@ -2,7 +2,6 @@
 	import { superForm } from 'sveltekit-superforms/client'
 	import { SlideToggle } from '@skeletonlabs/skeleton'
 	//import Editor from '$lib/components/editor.svelte'
-	
 
 	/**
 	 * @typedef {Object} Props
@@ -13,6 +12,7 @@
 	let {data} = $props()
 
 	const { form, enhance, message, constraints, errors } = superForm(data)
+	console.log($form.id)
 	let isDraft = $state($form.published)
 </script>
 

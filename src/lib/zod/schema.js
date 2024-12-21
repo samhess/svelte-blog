@@ -7,6 +7,7 @@ export const authSchema = z.object({
 })
 
 export const postSchema = z.object({
+	id: z.number().nonnegative().readonly(),
 	title: z.string().min(1,'Missing title'),
 	slug: z.string().min(1,'Missing slug'),
 	description: z.string().min(1,'Missing description'),
