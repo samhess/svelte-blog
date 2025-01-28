@@ -1,7 +1,6 @@
 <script>
 	import { page } from '$app/stores'
 	import { enhance } from '$app/forms'
-	import { LightSwitch } from '@skeletonlabs/skeleton'
 </script>
 
 <nav class="mt-8 flex justify-between">
@@ -26,7 +25,5 @@
 				</li>
 			{/if}
 		</ol>
-
-		<LightSwitch />
 	</div>
 </nav>
