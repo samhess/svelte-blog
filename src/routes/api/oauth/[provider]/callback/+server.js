@@ -52,7 +52,6 @@ export async function GET({cookies,params,url}) {
 			const email = await getEmail(provider, accessToken)
 			if (email) {
 				const user = await db.user.findUnique({where:{email}})
-				console.log(user)
 				if (!user) {
 					await db.user.create({data:{email}})
 					console.info(`Added local user ${email}. Please complete details`)	
@@ -60,9 +59,8 @@ export async function GET({cookies,params,url}) {
 				console.info(`OAuth login via ${provider} with ${email}`)
 				const token = generateSessionToken()
 				const session = await createSession(token, email)
-				console.log(session)
 				cookies.set('svelteBlog', token, {httpOnly:true, sameSite:'lax', expires:session.expiresAt, path:'/'})
-				redirect(302, '/')
+				redirect(303, '/')
 			} else {
 				error(400, 'could not get email of OAuth user')
 			}
