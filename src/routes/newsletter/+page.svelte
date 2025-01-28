@@ -9,7 +9,7 @@
 		<form method="POST" action="?/subscribe" use:enhance>
 			<div class="flex gap-2">
 				<input class="input" type="email" name="email" />
-				<button class="btn variant-filled-primary" type="submit">
+				<button class="btn preset-filled-primary-500" type="submit">
 					Subscribe
 				</button>
 			</div>

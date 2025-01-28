@@ -32,8 +32,6 @@
     display: block;
     width: 100%;
     font-weight: 400;
-    @apply !rounded;
-    @apply !border-slate-400;
   }
   label {
     font-weight: 600;
@@ -65,9 +63,11 @@
 }
 
 @utility container {
-  @apply mx-auto max-w-5xl p-3;
+  margin-inline: auto;
+  padding-inline: 2rem;
+  max-width: var(--container-5xl);
 }
 
 @utility invalid {
-  @apply text-red-500;
+  color: var(--color-red-500);
 }

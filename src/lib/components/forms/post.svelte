@@ -93,6 +93,6 @@
 			</Switch>
 		</div>
 
-		<button class="button-primary" type="submit">Submit</button>
+		<button class="btn preset-filled-primary-500" type="submit">Submit</button>
 	</form>
 </div>

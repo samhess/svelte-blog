@@ -41,6 +41,6 @@
 			<span class="text-red-400">{$errors.password}</span>
 		{/if}
 
-		<button class="btn variant-filled mt-4" type="submit">Submit</button>
+		<button class="btn preset-filled-primary-500 mt-4" type="submit">Submit</button>
 	</form>
 </div>
