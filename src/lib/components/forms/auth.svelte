@@ -1,9 +1,8 @@
 <script>
-	import { superForm } from 'sveltekit-superforms/client'
+	import {superForm} from 'sveltekit-superforms/client'
 
 	let {data} = $props()
-
-	const { form, errors, constraints, enhance } = superForm(data)
+	let {form, constraints, enhance, errors} = $derived(superForm(data)) 
 </script>
 
 <div class="card mt-8 p-8">

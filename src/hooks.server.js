@@ -1,5 +1,5 @@
-import { validateSessionToken } from '$lib/server/session'
-import { error } from '@sveltejs/kit'
+import {validateSessionToken} from '$lib/server/session'
+import {error} from '@sveltejs/kit'
 
 export const handle = async ({event, resolve}) => {
 	console.log(`${event.request.method} ${event.url.pathname}`)
@@ -29,4 +29,16 @@ export const handle = async ({event, resolve}) => {
 			return resolve(event)
 		}
 	}
+}
+
+/** @type {import('@sveltejs/kit').HandleServerError} */
+export function handleError({error, event, status, message}) {
+	// @ts-ignore
+	const devMessage = error.message
+	console.error({
+		status, 
+		message,
+		devMessage
+	})
+	return {message: `${message}: ${devMessage}`}
 }

@@ -1,9 +1,6 @@
 <script>
-	import { createBubbler, preventDefault } from 'svelte/legacy';
-
-	const bubble = createBubbler();
-	import { slide } from 'svelte/transition'
-	import { date } from '$lib/utils'
+	import {slide} from 'svelte/transition'
+	import {date} from '$lib/utils'
 
 	let {data} = $props()
 	let {posts} = $derived(data)
@@ -18,21 +15,14 @@
 <article class="prose mt-32">
 	<h1 class="capitalize">Search posts</h1>
 
-	<form oninput={preventDefault(bubble('input'))} class="mt-8">
+	<form class="mt-8">
 		<label for="search">
-			<input
-				type="search"
-				autocomplete="off"
-				class="input"
-				name="search"
-				id="search"
-				bind:value={search}
-			/>
+			<input type="search" autocomplete="off" class="input" name="search" id="search" bind:value={search}/>
 		</label>
 	</form>
 
 	<div class="mt-8">
-		<ol class="list-none pl-0 space-y-6">
+		<ol class="list-none pl-0">
 			{#each filteredPosts as post, i}
 				<li transition:slide|local>
 					<h3>
@@ -43,9 +33,10 @@
 							{post.title}
 						</a>
 					</h3>
-					<p>{post.description}</p>
-					<p class="mt-4 text-gray-600 dark:text-gray-400">
-						{date(post.createdAt)}
+					<p>{post.description}
+						<span class="text-gray-600 dark:text-gray-400">
+							({date(post.createdAt)})
+						</span>
 					</p>
 				</li>
 

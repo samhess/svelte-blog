@@ -7,7 +7,7 @@ export function truncate(text='', limit = 40) {
  * @returns 
  */
 export function date(date) {
-	return new Date(date).toLocaleDateString('en', {
-		dateStyle: 'medium',
+	return new Date(date).toLocaleDateString('default', {
+		dateStyle: 'long',
 	})
 }

@@ -1,6 +1,6 @@
 <script>
-	import { superForm } from 'sveltekit-superforms/client'
-	import { SlideToggle } from '@skeletonlabs/skeleton'
+	import {superForm} from 'sveltekit-superforms/client'
+	import {Switch} from '@skeletonlabs/skeleton-svelte'
 	//import Editor from '$lib/components/editor.svelte'
 
 	/**
@@ -11,15 +11,15 @@
 	/** @type {Props} */
 	let {data} = $props()
 
-	const { form, enhance, message, constraints, errors } = superForm(data)
-	console.log($form.id)
+	let {form, enhance, message, constraints, errors} = $derived(superForm(data)) 
 	let isDraft = $state($form.published)
 </script>
 
 {#if $message}<h3>{$message}</h3>{/if}
 
-<div class="card mt-8 p-8">
+<div class="card mt-8">
 	<form method="POST" class="space-y-6" use:enhance>
+		<input type="number" name="id" bind:value={$form.id} hidden/>
 		<label class="label" for="title">
 			<span class="block">Title</span>
 			<input
@@ -71,10 +71,10 @@
 			<span class="invalid">{$errors.description}</span>
 		{/if}
 
-		<label class="label" for="description">
+		<label class="label" for="markdown">
 			<span>Markdown</span>
 			<textarea 
-				class="input mt-2 rounded-none"
+				class="form-textarea mt-2 rounded-none"
 				name="markdown"
 				aria-invalid={$errors.markdown ? 'true' : undefined}
 				bind:value={$form.markdown} 
@@ -88,11 +88,11 @@
 		{/if}
 
 		<div>
-			<SlideToggle name="published" bind:checked={isDraft}>
+			<Switch name="published" bind:checked={isDraft}>
 				Published
-			</SlideToggle>
+			</Switch>
 		</div>
 
-		<button class="btn variant-filled" type="submit">Submit</button>
+		<button class="button-primary" type="submit">Submit</button>
 	</form>
 </div>

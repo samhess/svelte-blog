@@ -4,7 +4,7 @@
 </script>
 
 <nav class="mt-8 flex justify-between">
-	<a class="unstyled text-xl" href="/">Blog</a>
+	<a class="unstyled text-xl" href="/">Svelte Blog</a>
 
 	<div class="flex items-center gap-4">
 		<ol class="flex space-x-4">

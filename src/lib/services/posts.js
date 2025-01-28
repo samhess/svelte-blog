@@ -56,15 +56,17 @@ export async function createPost(data) {
 }
 
 /**
- * @param {*} data 
+ * @param {*} post
  */
-export async function updatePost(id=1, data) {
+export async function updatePost(post) {
+	const {id, ...data} = post
+	console.log(data)
 	return await db.post.update({
-		where: { id },
+		where: {id},
 		data,
 	})
 }
 
 export async function deletePost(slug='') {
-	await db.post.delete({ where: { slug } })
+	await db.post.delete({where:{slug}})
 }

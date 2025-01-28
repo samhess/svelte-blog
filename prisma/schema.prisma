@@ -21,12 +21,12 @@ model Post {
 model Session {
   id        String   @id
   expiresAt DateTime
-  userId    String
-  user      User     @relation(fields: [userId], references: [username], onDelete: Cascade)
+  user      String
+  User      User     @relation(fields: [user], references: [email], onDelete: Cascade)
 }
 
 model User {
-  username String    @id
+  email    String    @id
   name     String?
   password String?
   Session  Session[]

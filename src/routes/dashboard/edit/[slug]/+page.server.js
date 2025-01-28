@@ -23,7 +23,7 @@ export const actions = {
 					...form.data,
 					html: await marked.parse(form.data.markdown),
 				}
-				await updatePost(form.data.id, data)
+				await updatePost(data)
 				redirect(303, '/dashboard')
 		} else {
 			actionResult('failure', { form })
