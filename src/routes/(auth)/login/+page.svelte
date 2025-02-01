@@ -4,7 +4,7 @@
 	let {data} = $props()
 </script>
 
-<article class="prose mx-auto mt-32 max-w-sm">
+<article class="prose dark:prose-invert  mx-auto mt-32 max-w-sm">
 	<h1>Log in</h1>
 	<div class="card mt-8 p-1">
 		<ul>

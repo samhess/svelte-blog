@@ -5,7 +5,7 @@
 	let {posts} = $derived(data)
 </script>
 
-<article class="prose mt-32">
+<article class="prose dark:prose-invert mt-32">
 	<h1 class="capitalize">Latest posts</h1>
 
 	<div class="mt-8 space-y-6">

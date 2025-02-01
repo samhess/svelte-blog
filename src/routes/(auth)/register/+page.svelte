@@ -5,7 +5,7 @@
 	let {form} = $derived(data)
 </script>
 
-<article class="prose mx-auto mt-32 max-w-sm">
+<article class="prose dark:prose-invert  mx-auto mt-32 max-w-sm">
 	<h1>Register</h1>
 	<AuthForm data={form} />
 </article>

@@ -1,37 +1,23 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:where(.dark, .dark *));
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--color-white);
+    background-color: var(--color-gray-800);
+  }
+}
 
 @plugin '@tailwindcss/typography';
-/*@plugin '@tailwindcss/forms';
-@plugin '@skeletonlabs/skeleton/plugin';*/
+@plugin '@tailwindcss/forms';
 
-@config '../tailwind.config.js';
+/*@config '../tailwind.config.js';*/
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-  html, 
-  body {
-		@apply h-full;
-	}
   input, select, textarea {
     display: block;
     width: 100%;
     font-weight: 400;
+    @apply dark:text-black
   }
   label {
     font-weight: 600;
@@ -54,11 +40,8 @@
   td,th {
     padding: 4px;
   }
-  thead tr {
-    @apply bg-gray-200
-  }
-  tbody tr {
-    @apply even:bg-gray-100 hover:bg-gray-200
+  .prose {
+    max-width: none!important;
   }
 }
 

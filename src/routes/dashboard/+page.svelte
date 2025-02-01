@@ -1,11 +1,11 @@
 <script>
-	import { enhance } from '$app/forms'
-	import { date, truncate } from '$lib/utils'
+	import {enhance} from '$app/forms'
+	import {date, truncate} from '$lib/utils'
 
 	let {data} = $props()
 </script>
 
-<article class="prose mt-32">
+<article class="prose dark:prose-invert mt-32">
 	<h1 class="font">Dashboard</h1>
 
 	<div class="mt-8">

@@ -12,7 +12,7 @@
 	))
 </script>
 
-<article class="prose mt-32">
+<article class="prose dark:prose-invert  mt-32">
 	<h1 class="capitalize">Search posts</h1>
 
 	<form class="mt-8">

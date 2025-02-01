@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms'
 </script>
 
-<article class="prose mt-32">
+<article class="prose dark:prose-invert  mt-32">
 	<h1>Newsletter</h1>
 
 	<div class="mt-8 max-w-md">
