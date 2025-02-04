@@ -5,16 +5,10 @@
 	let {data} = $props()
 </script>
 
-<article class="prose dark:prose-invert mt-32">
-	<h1 class="font">Dashboard</h1>
+<article class="prose dark:prose-invert">
+	<h1>Dashboard</h1>
 
-	<div class="mt-8">
-		<a class="font-bold capitalize underline-offset-4" href="/dashboard/create">
-			+ Create a new post
-		</a>
-	</div>
-
-	<table class="table table-hover">
+	<table class="table table-auto">
 		<thead>
 			<tr>
 				<th>Title</th>
@@ -28,7 +22,7 @@
 			{#each data.posts as post, i}
 				<tr>
 					<td>
-						<a class="unstyled capitalize" href="/dashboard/edit/{post.slug}">
+						<a class="capitalize" href="/dashboard/edit/{post.slug}">
 							{truncate(post.title)}
 						</a>
 					</td>
@@ -49,4 +43,11 @@
 			{/each}
 		</tbody>
 	</table>
+	
+	<div class="mt-8">
+		<a class="font-medium capitalize underline-offset-4" href="/dashboard/create">
+			+ Create a new post
+		</a>
+	</div>
+
 </article>

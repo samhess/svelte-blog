@@ -1,26 +1,26 @@
 <script>
-	import { page } from '$app/stores'
-	import { enhance } from '$app/forms'
+	import {page} from '$app/state'
+	import {enhance} from '$app/forms'
 </script>
 
 <nav class="mt-8 flex justify-between">
-	<a class="unstyled text-xl" href="/">Svelte Blog</a>
+	<a class="text-2xl font-bold mt-2" href="/">Svelte Blog</a>
 
 	<div class="flex items-center gap-4">
 		<ol class="flex space-x-4">
 			<li>
-				<a class="unstyled muted" href="/blog">Blog</a>
+				<a class="" href="/blog">Blog</a>
 			</li>
 			<li>
-				<a class="unstyled muted" href="/dashboard">Dashboard</a>
+				<a class="" href="/dashboard">Dashboard</a>
 			</li>
 			<li>
-				<a class="unstyled muted" href="/about">About</a>
+				<a class="" href="/about">About</a>
 			</li>
-			{#if $page.data.user}
+			{#if page.data.user}
 				<li>
 					<form method="POST" action="/logout" use:enhance>
-						<button class="muted" type="submit">Log out</button>
+						<button class="" type="submit">Log out</button>
 					</form>
 				</li>
 			{/if}

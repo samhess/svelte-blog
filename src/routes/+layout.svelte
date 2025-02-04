@@ -13,13 +13,12 @@
 </script>
 
 <svelte:head>
-	<title>Blog</title>
-	<link rel="icon" href="https://fav.farm"/>
+	<title>Svelte Blog</title>
 </svelte:head>
 
 <div class="container">
 	<Heading/>
-	<main class="mt-32">
+	<main class="mt-24">
 		{@render children?.()}
 	</main>
 	<Footer/>

@@ -10,9 +10,13 @@
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 
-/*@config '../tailwind.config.js';*/
-
 @layer base {
+  article {
+    max-width: none!important;
+  }
+  button {
+    @apply bg-gray-500 hover:bg-gray-600 text-white rounded px-3 py-1.5;
+  }
   input, select, textarea {
     display: block;
     width: 100%;
@@ -39,9 +43,6 @@
   }
   td,th {
     padding: 4px;
-  }
-  .prose {
-    max-width: none!important;
   }
 }
 

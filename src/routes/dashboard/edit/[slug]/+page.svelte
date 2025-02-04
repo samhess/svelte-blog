@@ -4,7 +4,7 @@
 	let {data} = $props()
 </script>
 
-<article class="prose dark:prose-invert  mt-32">
+<article class="prose dark:prose-invert mt-32">
 	<h1 class="capitalize">Edit post</h1>
 	<Form data={data.form} />
 </article>

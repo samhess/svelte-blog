@@ -1,7 +1,7 @@
 import db from '$lib/server/database.js'
 import {encodeBase32LowerCaseNoPadding, encodeHexLowerCase} from '@oslojs/encoding'
 import {sha256} from '@oslojs/crypto/sha2'
-import {getRandomValues} from 'node:crypto'
+import {getRandomValues} from 'crypto'
 
 export function generateSessionToken() {
 	const typedArray = new Uint8Array(20)

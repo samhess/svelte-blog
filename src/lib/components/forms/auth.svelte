@@ -5,7 +5,7 @@
 	let {form, constraints, enhance, errors} = $derived(superForm(data)) 
 </script>
 
-<div class="card mt-8 p-8">
+<div class="mt-8">
 	<form method="POST" class="space-y-6" use:enhance>
 		<label class="label" for="username">
 			<span class="block">Username</span>
@@ -40,7 +40,6 @@
 		{#if $errors.password}
 			<span class="text-red-400">{$errors.password}</span>
 		{/if}
-
-		<button class="btn preset-filled-primary-500 mt-4" type="submit">Submit</button>
+		<button class="btn preset-filled-primary-500 mt-2" type="submit">Submit</button>
 	</form>
 </div>

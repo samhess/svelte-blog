@@ -20,7 +20,7 @@ export const actions = {
 			try {
 				const user = await db.user.create({
 					data: {
-						username: form.data.username,
+						email: form.data.username,
 						password: form.data.password
 					}
 				})

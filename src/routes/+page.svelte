@@ -5,7 +5,7 @@
 	let {posts} = $derived(data)
 </script>
 
-<article class="prose dark:prose-invert mt-32">
+<article class="prose dark:prose-invert">
 	<h1 class="capitalize">Latest posts</h1>
 
 	<div class="mt-8 space-y-6">
@@ -14,7 +14,7 @@
 				<li>
 					<h3>
 						<a
-							class="unstyled font-semibold capitalize text-primary-500"
+							class="font-semibold capitalize text-primary-500"
 							href="/blog/{post.slug}"
 						>
 							{post.title}
