@@ -11,25 +11,25 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@prisma/client": "^6.3.1",
+		"@prisma/client": "^6.4.1",
 		"@sveltejs/adapter-auto": "^4.0.0",
-		"arctic": "^3.2.2",
-		"marked": "^15.0.6",
+		"arctic": "^3.4.0",
+		"marked": "^15.0.7",
 		"rss": "^1.2.2"
 	},
 	"devDependencies": {
-		"@sveltejs/kit": "^2.17.1",
+		"@sveltejs/kit": "^2.17.3",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
 		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/typography": "^0.5.16",
-		"@tailwindcss/vite": "^4.0.3",
-		"@types/node": "^22.13.1",
-		"prisma": "^6.3.1",
-		"svelte": "^5.19.7",
+		"@tailwindcss/vite": "^4.0.9",
+		"@types/node": "^22.13.5",
+		"prisma": "^6.4.1",
+		"svelte": "^5.20.4",
 		"svelte-check": "^4.1.4",
 		"sveltekit-superforms": "^2.23.1",
-		"tailwindcss": "^4.0.3",
-		"vite": "^6.0.11",
-		"zod": "^3.24.1"
+		"tailwindcss": "^4.0.9",
+		"vite": "^6.2.0",
+		"zod": "^3.24.2"
 	}
 }
