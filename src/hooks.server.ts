@@ -31,10 +31,9 @@ export const handle = async ({event, resolve}) => {
 	}
 }
 
-/** @type {import('@sveltejs/kit').HandleServerError} */
-export function handleError({error, event, status, message}) {
-	// @ts-ignore
-	const devMessage = error.message
+
+export async function handleError({error, event, status, message}) {
+	const devMessage = message
 	console.error({
 		status, 
 		message,

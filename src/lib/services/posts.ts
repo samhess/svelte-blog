@@ -1,5 +1,5 @@
 import db from '$lib/server/database'
-import { error } from '@sveltejs/kit'
+import {error} from '@sveltejs/kit'
 
 export async function getPosts() {
 	return await db.post.findMany({
@@ -27,7 +27,7 @@ export async function getPublishedPosts() {
 	})
 }
 
-export async function getPost(slug='') {
+export async function getPost(slug:string) {
 	const post = await db.post.findUnique({
 		where: { slug },
 		select: {
@@ -40,25 +40,17 @@ export async function getPost(slug='') {
 			published: true,
 		},
 	})
-
 	if (!post) {
 		error(400, `Could not find “${slug}”`)
 	}
-
 	return post
 }
 
-/**
- * @param {*} data 
- */
-export async function createPost(data) {
-	await db.post.create({ data })
+export async function createPost(data:any) {
+	await db.post.create({data})
 }
 
-/**
- * @param {*} post
- */
-export async function updatePost(post) {
+export async function updatePost(post:any) {
 	const {id, ...data} = post
 	console.log(data)
 	return await db.post.update({
@@ -67,6 +59,6 @@ export async function updatePost(post) {
 	})
 }
 
-export async function deletePost(slug='') {
+export async function deletePost(slug:string) {
 	await db.post.delete({where:{slug}})
 }

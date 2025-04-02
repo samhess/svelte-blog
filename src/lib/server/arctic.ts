@@ -6,10 +6,13 @@ import {
 	GOOGLE_CLIENT_SECRET
 } from '$env/static/private'
 
+type Oauth = {
+	[index:string]: any
+}
+
 const redirectURL = 'http://localhost:5173/api/oauth'
 
-/** @type {Object<string,any>} */
-export const oauth = {
+export const oauth:Oauth = {
 	github: {
 		arctic: new GitHub(GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, `${redirectURL}/github/callback`),
 		api: {

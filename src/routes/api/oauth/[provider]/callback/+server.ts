@@ -3,12 +3,11 @@ import { oauth } from '$lib/server/arctic.js'
 import { generateSessionToken, createSession } from '$lib/server/session.js'
 import db from '$lib/server/database.js'
 
-/**
- * @param {string} providerKey 
- * @param {string|null|undefined} code 
- * @param {string|null|undefined} codeVerifier 
- */
-async function getAccessToken(providerKey='github', code, codeVerifier) {
+type Address = {
+	[index:string]: any
+}
+
+async function getAccessToken(providerKey='github', code:string, codeVerifier:string) {
 	const provider = oauth[providerKey]
 	if (provider.useCodeVerifier) {
 		const tokens = await provider.arctic.validateAuthorizationCode(code, codeVerifier)
@@ -23,8 +22,7 @@ async function getEmail(provider='github', accessToken='') {
 	const response = await fetch(oauth[provider].api.email, {headers:{Authorization: `Bearer ${accessToken}`}})
 	if (response.ok) {
 		if (provider==='github') {
-			/** @type {Object<string,any>[]} */
-			const addresses = await response.json()
+			const addresses = await response.json() as Address[]
 			const address = addresses.find(({primary})=>primary)
 			if (address) {
 				return address.email
@@ -39,14 +37,13 @@ async function getEmail(provider='github', accessToken='') {
 	}
 }
 
-/** @type {import('./$types').RequestHandler} */
 export async function GET({cookies,params,url}) {
 	const {provider} = params
 	const storedState = cookies.get(`${provider}State`)
 	const state = url.searchParams.get('state')
 	if (state === storedState) {
-		const code = url.searchParams.get('code')
-		const codeVerifier = cookies.get(`${provider}CodeVerifier`)
+		const code = url.searchParams.get('code') as string
+		const codeVerifier = cookies.get(`${provider}CodeVerifier`) as string
 		const accessToken = await getAccessToken(provider, code, codeVerifier)
 		if (accessToken) {
 			const email = await getEmail(provider, accessToken)

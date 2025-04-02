@@ -7,8 +7,8 @@ export const load = async () => {
 }
 
 export const actions = {
-	delete: async ({ url }) => {
-		const slug = String(url.searchParams.get('slug'))
+	delete: async ({url}) => {
+		const slug = url.searchParams.get('slug') as string
 		try {
 			await deletePost(slug)
 		} catch (error) {

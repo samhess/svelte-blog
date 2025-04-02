@@ -1,5 +1,5 @@
-import { z } from 'zod'
-import { zod } from 'sveltekit-superforms/adapters'
+import {z} from 'zod'
+import {zod} from 'sveltekit-superforms/adapters'
 
 export const authSchema = z.object({
 	username: z.string().min(3,'3 characters required'),

@@ -3,12 +3,7 @@ import { redirect } from '@sveltejs/kit'
 import { oauth } from '$lib/server/arctic.js'
 import { dev } from '$app/environment'
 
-/**
- * @param {string} providerKey 
- * @param {string} state 
- * @param {string} codeVerifier 
- */
-async function createAuthorizationURL(providerKey, state, codeVerifier) {
+async function createAuthorizationURL(providerKey:string, state:string, codeVerifier:string) {
 	const provider = oauth[providerKey]
 	if (provider.useCodeVerifier) {
 		return await provider.arctic.createAuthorizationURL(state, codeVerifier, provider.scopes)
@@ -17,7 +12,6 @@ async function createAuthorizationURL(providerKey, state, codeVerifier) {
 	}
 } 
 
-/** @type {import('./$types').RequestHandler} */
 export async function GET({cookies,params}) {
 	const {provider} = params
   const state = generateState()
