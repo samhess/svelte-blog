@@ -33,11 +33,6 @@ export const handle = async ({event, resolve}) => {
 
 
 export async function handleError({error, event, status, message}) {
-	const devMessage = message
-	console.error({
-		status, 
-		message,
-		devMessage
-	})
-	return {message: `${message}: ${devMessage}`}
+	console.error(`${status}: ${message}`)
+	return new Error(message)
 }
