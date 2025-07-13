@@ -1,4 +1,4 @@
-import {z} from 'zod'
+import * as z from 'zod'
 import {zod} from 'sveltekit-superforms/adapters'
 
 export const authSchema = z.object({
