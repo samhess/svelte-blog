@@ -1,6 +1,6 @@
 {
 	"name": "svelte-blog",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
@@ -30,6 +30,6 @@
 		"sveltekit-superforms": "^2.27.1",
 		"tailwindcss": "^4.1.11",
 		"vite": "^7.0.4",
-		"zod": "^3"
+		"zod": "^4.0.5"
 	}
 }
