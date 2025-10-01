@@ -1,7 +1,8 @@
+import type {HandleServerError, Handle, ServerInit} from '@sveltejs/kit'
 import {validateSessionToken} from '$lib/server/session'
 import {error} from '@sveltejs/kit'
 
-export const handle = async ({event, resolve}) => {
+export const handle: Handle = async ({event, resolve}) => {
 	console.log(`${event.request.method} ${event.url.pathname}`)
 
 	const token = event.cookies.get('svelteBlog')
@@ -32,7 +33,8 @@ export const handle = async ({event, resolve}) => {
 }
 
 
-export async function handleError({error, event, status, message}) {
-	console.error(`${status}: ${message}`)
-	return new Error(message)
+export const handleError: HandleServerError = ({error, event, status, message}) => {
+  console.error(`${status}: ${event.url.pathname} ${message}`)
+  return {status, message}
 }
+
